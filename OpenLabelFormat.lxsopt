@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XmlStudioProjectOptions Version="17.1.5.9520">
+  <File>.\Documents\olf_dummy.json</File>
+  <File>.\Schemas\JsonSchema_Iter3.json</File>
+  <ActiveWindow>olf_dummy.json</ActiveWindow>
+  <ProjectTreeState />
+  <UserProperties sourceUri=".\Schemas\JsonSchema_Iter2.json">
+    <Value name="Zoom">1</Value>
+    <Value name="DisplayMode">Split</Value>
+  </UserProperties>
+  <UserProperties sourceUri=".\Schemas\JsonSchema_Iter3.json">
+    <Value name="Zoom">1</Value>
+  </UserProperties>
+</XmlStudioProjectOptions>

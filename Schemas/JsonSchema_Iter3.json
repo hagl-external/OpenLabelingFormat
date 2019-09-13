@@ -1,0 +1,1538 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/ADAS-API/OpenLabelFormat/blob/master/schema.json",
+    "type": "object",
+    "title": "OpenLabelFormat",
+    "description": "Created with Liquid Studio 2019 (https://www.liquid-technologies.com)",
+    "additionalProperties": false,
+    "properties": {
+        "versionInfo": {
+            "type": "object",
+            "description": "Versions of schema and label files as string",
+            "additionalProperties": false,
+            "properties": {
+                "schema": {
+                    "type": "string",
+                    "description": "string containing version of schema used for validation"
+                },
+                "labelFile": {
+                    "type": "string",
+                    "description": "string containing version of label file"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "schema",
+                "labelFile"
+            ]
+        },
+        "projectInfo": {
+            "type": "object",
+            "description": "project settings",
+            "properties": {
+                "unit": {
+                    "type": "string",
+                    "description": "unit of configured start/end/skip settings",
+                    "enum": [
+                        "frames",
+                        "ms",
+                        "s"
+                    ]
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "unit"
+            ],
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "start": {
+                            "type": "number",
+                            "description": "configured start frame or time within media file",
+                            "minimum": 0
+                        },
+                        "end": {
+                            "type": "number",
+                            "description": "configured end frame or time within media file",
+                            "minimum": 0
+                        },
+                        "skip": {
+                            "type": "number",
+                            "description": "configured frame or time skip within media file (DEPRECATED)",
+                            "minimum": 0
+                        }
+                    },
+                    "required": [
+                        "start",
+                        "end",
+                        "skip"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "intervals": {
+                            "type": "array",
+                            "description": "analyzed frames or time stamps within media file",
+                            "items": {
+                                "type": "number",
+                                "description": "frame no. or time stamp",
+                                "minimum": 0
+                            }
+                        }
+                    },
+                    "required": [
+                        "intervals"
+                    ]
+                }
+            ]
+        },
+        "mediaInfo": {
+            "type": "array",
+            "description": "details about corresponding media file(s)",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "uuid": {
+                        "$ref": "#/definitions/uuid"
+                    },
+                    "history": {
+                        "$ref": "#/definitions/history"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "name of corresponding media file"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "url pointing to the media file",
+                        "format": "uri"
+                    },
+                    "hash": {
+                        "$ref": "#/definitions/hash"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "media MIME type",
+                        "enum": [
+                            "image/jpeg",
+                            "image/png",
+                            "video/mp4",
+                            "video/x-msvideo",
+                            "pointcloud/pcl"
+                        ]
+                    },
+                    "codec": {
+                        "type": "string",
+                        "description": "media codec"
+                    },
+                    "duration": {
+                        "type": "number",
+                        "description": "duration of mediafile in seconds, -1 if not applicable",
+                        "minimum": -1
+                    },
+                    "framerate": {
+                        "type": "integer",
+                        "description": "framerate of media file, -1 if not applicable",
+                        "minimum": -1
+                    },
+                    "width": {
+                        "type": "integer",
+                        "description": "spatial horizontal resolution, -1 if not applicable",
+                        "minimum": -1
+                    },
+                    "height": {
+                        "type": "integer",
+                        "description": "spatial vertical resolution, -1 if not applicable",
+                        "minimum": -1
+                    }
+                }
+            }
+        },
+        "calibrationInfo": {
+            "type": "object",
+            "description": "details about corresponding calibration file",
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of corresponding calibration file"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "url pointing to the calibration file",
+                    "format": "uri"
+                },
+                "hash": {
+                    "$ref": "#/definitions/hash"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                },
+                "coordinateSystem": {
+                    "$ref": "#/definitions/coordinateSystem"
+                }
+            },
+            "required": [
+                "uuid",
+                "name",
+                "url"
+            ]
+        },
+        "odometryInfo": {
+            "type": "object",
+            "description": "details about corresponding odometry file",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of corresponding odometry file"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "url pointing to the odometry file",
+                    "format": "uri"
+                },
+                "hash": {
+                    "$ref": "#/definitions/hash"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "uuid",
+                "name",
+                "url"
+            ]
+        },
+        "positionInfo": {
+            "type": "object",
+            "description": "details about corresponding position data file, e.g. GPS",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of corresponding position file"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "url pointing to the position file",
+                    "format": "uri"
+                },
+                "hash": {
+                    "$ref": "#/definitions/hash"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "uuid",
+                "name",
+                "url"
+            ]
+        },
+        "metaInfo": {
+            "type": "array",
+            "description": "array of attributes valid for parts of or the entire media file",
+            "additionalItems": {
+                "$ref": "#/definitions/metaAttribute"
+            },
+            "items": [
+                {
+                    "$ref": "#/definitions/metaAttribute_WeatherRainy"
+                },
+                {
+                    "$ref": "#/definitions/metaAttribute_WeatherSnowy"
+                },
+                {
+                    "$ref": "#/definitions/metaAttribute_WeatherCloudy"
+                },
+                {
+                    "$ref": "#/definitions/metaAttribute_WeatherFoggy"
+                },
+                {
+                    "$ref": "#/definitions/metaAttribute_WeatherSunny"
+                },
+                {
+                    "$ref": "#/definitions/metaAttribute_Visibility"
+                },
+                {
+                    "$ref": "#/definitions/metaAttribute_RangeOfSight"
+                },
+                {
+                    "$ref": "#/definitions/metaAttribute_RoadType"
+                },
+                {
+                    "$ref": "#/definitions/metaAttribute_RoadCondition"
+                }
+            ]
+        },
+        "objectInfo": {
+            "type": "array",
+            "description": "array of labeled objects",
+            "items": {
+                "$ref": "#/definitions/object"
+            }
+        }
+    },
+    "required": [
+        "calibrationInfo",
+        "odometryInfo",
+        "versionInfo",
+        "projectInfo",
+        "positionInfo",
+        "metaInfo"
+    ],
+    "definitions": {
+        "uuid": {
+            "type": "string",
+            "description": "36-hex-digit uuid string containing dashes, i. e. 8-4-4-4-12",
+            "maxLength": 36,
+            "minLength": 36,
+            "format": "uuid"
+        },
+        "hash": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "description": "hash value as string"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "used hashing method",
+                    "enum": [
+                        "md5",
+                        "sha-1",
+                        "sha-224",
+                        "sha-256",
+                        "sha-384",
+                        "sha-512",
+                        "ripemd-160"
+                    ]
+                }
+            },
+            "required": [
+                "value",
+                "method"
+            ]
+        },
+        "agent": {
+            "type": "object",
+            "description": "properties of a label agent",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "dateTime": {
+                    "type": "string",
+                    "description": "date-time as defined by RFC3339",
+                    "format": "date-time"
+                }
+            },
+            "required": [
+                "uuid",
+                "dateTime"
+            ]
+        },
+        "history": {
+            "type": "object",
+            "description": "tracks the history of an attribute or object",
+            "additionalProperties": false,
+            "properties": {
+                "created": {
+                    "$ref": "#/definitions/agent"
+                },
+                "modified": {
+                    "$ref": "#/definitions/agent"
+                }
+            },
+            "required": [
+                "created",
+                "modified"
+            ]
+        },
+        "relation": {
+            "type": "object",
+            "description": "relations from an object to other or objects",
+            "anyOf": [
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "uuidOfParent": {
+                            "$ref": "#/definitions/uuid"
+                        }
+                    },
+                    "required": [
+                        "uuidOfParent"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "uuidOfSibling": {
+                            "$ref": "#/definitions/uuid"
+                        }
+                    },
+                    "required": [
+                        "uuidOfSibling"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "uuidOfChild": {
+                            "$ref": "#/definitions/uuid"
+                        }
+                    },
+                    "required": [
+                        "uuidOfChild"
+                    ]
+                }
+            ]
+        },
+        "temporalValidity": {
+            "type": "object",
+            "description": "temporal validity of an object or attribute",
+            "additionalProperties": false,
+            "properties": {
+                "start": {
+                    "type": "number",
+                    "description": "start of temporal validity",
+                    "minimum": 0
+                },
+                "end": {
+                    "type": "number",
+                    "description": "end of temporal validity",
+                    "minimum": 0
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "unit of temporal validity"
+                }
+            },
+            "required": [
+                "start",
+                "end",
+                "unit"
+            ]
+        },
+        "coordinate1D": {
+            "type": "object",
+            "description": "cartesian coordinate in 2d space",
+            "additionalProperties": false,
+            "properties": {
+                "x": {
+                    "type": "number",
+                    "description": "x-coordinate"
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "unit of coordinates",
+                    "enum": [
+                        "px",
+                        "mm",
+                        "cm",
+                        "m"
+                    ]
+                }
+            },
+            "required": [
+                "x",
+                "unit"
+            ]
+        },
+        "coordinate2D": {
+            "type": "object",
+            "description": "cartesian coordinate in 2d space",
+            "properties": {
+                "x": {
+                    "type": "number",
+                    "description": "x-coordinate"
+                },
+                "y": {
+                    "type": "number",
+                    "description": "y-coordinate"
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "unit of coordinates",
+                    "enum": [
+                        "px",
+                        "mm",
+                        "cm",
+                        "m"
+                    ]
+                }
+            },
+            "required": [
+                "x",
+                "y",
+                "unit"
+            ]
+        },
+        "coordinate3D": {
+            "type": "object",
+            "description": "cartesian coordinate in 3d space",
+            "properties": {
+                "x": {
+                    "type": "number",
+                    "description": "x-coordinate"
+                },
+                "y": {
+                    "type": "number",
+                    "description": "y-coordinate"
+                },
+                "z": {
+                    "type": "number",
+                    "description": "z-coordinate"
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "unit of coordinates",
+                    "enum": [
+                        "px",
+                        "mm",
+                        "cm",
+                        "m"
+                    ]
+                }
+            },
+            "required": [
+                "x",
+                "y",
+                "z",
+                "unit"
+            ]
+        },
+        "coordinateSystem": {
+            "type": "object",
+            "description": "coordinates are stated relative to this coordinate system",
+            "required": [],
+            "anyOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "coordinateSystem2D": {
+                            "type": "object",
+                            "description": "2D coordinate system given by a 2D translation and a scalar rotation",
+                            "properties": {
+                                "translation": {
+                                    "$ref": "#/definitions/coordinate2D"
+                                },
+                                "rotation": {
+                                    "$ref": "#/definitions/rotation2D"
+                                }
+                            },
+                            "required": [
+                                "translation",
+                                "rotation"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "coordinateSystem2D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "coordinateSystem3D": {
+                            "type": "object",
+                            "properties": {
+                                "translation": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                },
+                                "rotation": {
+                                    "$ref": "#/definitions/rotation3D"
+                                }
+                            },
+                            "required": [
+                                "translation",
+                                "rotation"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "coordinateSystem3D"
+                    ]
+                }
+            ]
+        },
+        "rotation2D": {
+            "type": "object",
+            "description": "defines rotation in 1D space",
+            "properties": {
+                "angle": {
+                    "type": "number",
+                    "description": "rotation angle",
+                    "maximum": 360,
+                    "minimum": -360
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "deg",
+                        "rad"
+                    ]
+                }
+            },
+            "required": [
+                "angle",
+                "unit"
+            ]
+        },
+        "rotation3D": {
+            "type": "object",
+            "description": "defines rotation in 3D space",
+            "additionalProperties": false,
+            "properties": {
+                "x": {
+                    "type": "number",
+                    "description": "rotation around x axis",
+                    "maximum": 360,
+                    "minimum": -360
+                },
+                "y": {
+                    "type": "number",
+                    "description": "rotation around y axis",
+                    "maximum": 360,
+                    "minimum": -360
+                },
+                "z": {
+                    "type": "number",
+                    "description": "rotation around z axis",
+                    "maximum": 360,
+                    "minimum": -360
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "deg",
+                        "rad"
+                    ]
+                }
+            },
+            "required": [
+                "x",
+                "y",
+                "z",
+                "unit"
+            ]
+        },
+        "shape2D": {
+            "type": "object",
+            "description": "defines 2D shapes of an 2D object",
+            "required": [],
+            "anyOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "line2D": {
+                            "type": "object",
+                            "properties": {
+                                "start": {
+                                    "$ref": "#/definitions/coordinate2D"
+                                },
+                                "end": {
+                                    "$ref": "#/definitions/coordinate2D"
+                                }
+                            },
+                            "required": [
+                                "start",
+                                "end"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "line2D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "box2D": {
+                            "type": "object",
+                            "properties": {
+                                "topLeft": {
+                                    "$ref": "#/definitions/coordinate2D"
+                                },
+                                "bottomRight": {
+                                    "$ref": "#/definitions/coordinate2D"
+                                },
+                                "rotation": {
+                                    "$ref": "#/definitions/rotation2D"
+                                }
+                            },
+                            "required": [
+                                "topLeft",
+                                "bottomRight",
+                                "rotation"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "box2D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "points2D": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/coordinate2D"
+                            }
+                        }
+                    },
+                    "required": [
+                        "points2D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "mask2D": {
+                            "type": "string",
+                            "description": "Run-length encoded (RLE)"
+                        }
+                    },
+                    "required": [
+                        "mask2D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "polyLine2D": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/coordinate2D"
+                            }
+                        }
+                    },
+                    "required": [
+                        "polyLine2D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "polygon2D": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/coordinate2D"
+                            }
+                        }
+                    },
+                    "required": [
+                        "polygon2D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "ellipse2D": {
+                            "type": "object",
+                            "properties": {
+                                "center": {
+                                    "$ref": "#/definitions/coordinate2D"
+                                },
+                                "semi-major": {
+                                    "$ref": "#/definitions/coordinate1D"
+                                },
+                                "semi-minor": {
+                                    "$ref": "#/definitions/coordinate1D"
+                                },
+                                "rotation": {
+                                    "$ref": "#/definitions/rotation2D"
+                                }
+                            },
+                            "required": [
+                                "center",
+                                "semi-major",
+                                "semi-minor",
+                                "rotation"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "ellipse2D"
+                    ]
+                }
+            ]
+        },
+        "shape3D": {
+            "type": "object",
+            "description": "defines 3D shapes of an 3D object",
+            "required": [],
+            "anyOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "line3D": {
+                            "type": "object",
+                            "description": "Defines a line from 2 points",
+                            "properties": {
+                                "start": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                },
+                                "end": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                }
+                            },
+                            "required": [
+                                "start",
+                                "end"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "line3D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "plane3D": {
+                            "type": "object",
+                            "description": "Defines a plane from 3 vectors",
+                            "properties": {
+                                "vectorP": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                },
+                                "vectorU": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                },
+                                "vectorV": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                }
+                            },
+                            "required": [
+                                "vectorV",
+                                "vectorU",
+                                "vectorP"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "plane3D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "points3D": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/coordinate3D"
+                            }
+                        }
+                    },
+                    "required": [
+                        "points3D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "box3D": {
+                            "type": "object",
+                            "properties": {
+                                "topLeft": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                },
+                                "bottomRight": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                },
+                                "rotation": {
+                                    "$ref": "#/definitions/rotation3D"
+                                }
+                            },
+                            "required": [
+                                "rotation",
+                                "bottomRight",
+                                "topLeft"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "box3D"
+                    ]
+                }
+            ]
+        },
+        "shape": {
+            "type": "object",
+            "description": "defines different shapes of an object",
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/shape2D"
+                },
+                {
+                    "$ref": "#/definitions/shape3D"
+                }
+            ]
+        },
+        "object": {
+            "type": "object",
+            "description": "defines one object to be labeled",
+            "additionalProperties": false,
+            "properties": {
+                "objectid": {
+                    "type": "integer",
+                    "description": "internal id",
+                    "minimum": -1
+                },
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "uuidOfMedia": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                },
+                "validity": {
+                    "$ref": "#/definitions/temporalValidity"
+                },
+                "attributes": {
+                    "type": "array",
+                    "description": "attributes of this object",
+                    "additionalItems": {
+                        "$ref": "#/definitions/objectAttribute"
+                    },
+                    "items": [
+                        {
+                            "$ref": "#/definitions/objectAttribute_Truncation"
+                        },
+                        {
+                            "$ref": "#/definitions/objectAttribute_Occlusion"
+                        },
+                        {
+                            "$ref": "#/definitions/objectAttribute_Type"
+                        }
+                    ]
+                },
+                "shapes": {
+                    "type": "array",
+                    "description": "shapes of this object",
+                    "items": {
+                        "$ref": "#/definitions/shape"
+                    }
+                },
+                "relations": {
+                    "type": "array",
+                    "description": "relations of this object to other objects",
+                    "items": {
+                        "$ref": "#/definitions/relation"
+                    }
+                }
+            },
+            "required": [
+                "uuid",
+                "validity",
+                "attributes",
+                "shapes",
+                "relations",
+                "objectid",
+                "uuidOfMedia"
+            ]
+        },
+        "objectAttribute": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type of attribute as string"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of attribute as string"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "value of attribute as string"
+                }
+            },
+            "required": [
+                "uuid",
+                "type",
+                "name",
+                "value"
+            ]
+        },
+        "metaAttribute": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "uuidOfMedia": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type of attribute as string"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of attribute as string"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "value of attribute as string"
+                },
+                "validity": {
+                    "$ref": "#/definitions/temporalValidity"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "uuid",
+                "uuidOfMedia",
+                "type",
+                "name",
+                "value",
+                "validity"
+            ]
+        },
+        "metaAttribute_WeatherRainy": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "uuidOfMedia": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type of attribute as string",
+                    "enum": [
+                        "weather"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of attribute as string",
+                    "enum": [
+                        "rainy"
+                    ]
+                },
+                "value": {
+                    "type": "string",
+                    "description": "value of attribute as string",
+                    "enum": [
+                        "light",
+                        "moderate",
+                        "heavy",
+                        "none"
+                    ]
+                },
+                "validity": {
+                    "$ref": "#/definitions/temporalValidity"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "uuid",
+                "uuidOfMedia",
+                "type",
+                "name",
+                "value",
+                "validity"
+            ]
+        },
+        "metaAttribute_WeatherSnowy": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "uuidOfMedia": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type of attribute as string",
+                    "enum": [
+                        "weather"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of attribute as string",
+                    "enum": [
+                        "snowy"
+                    ]
+                },
+                "value": {
+                    "type": "string",
+                    "description": "value of attribute as string",
+                    "enum": [
+                        "light",
+                        "moderate",
+                        "heavy",
+                        "none"
+                    ]
+                },
+                "validity": {
+                    "$ref": "#/definitions/temporalValidity"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "uuid",
+                "uuidOfMedia",
+                "type",
+                "name",
+                "value",
+                "validity"
+            ]
+        },
+        "metaAttribute_WeatherFoggy": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "uuidOfMedia": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type of attribute as string",
+                    "enum": [
+                        "weather"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of attribute as string",
+                    "enum": [
+                        "foggy"
+                    ]
+                },
+                "value": {
+                    "type": "string",
+                    "description": "value of attribute as string",
+                    "enum": [
+                        "light",
+                        "moderate",
+                        "heavy",
+                        "none"
+                    ]
+                },
+                "validity": {
+                    "$ref": "#/definitions/temporalValidity"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "uuid",
+                "uuidOfMedia",
+                "type",
+                "name",
+                "value",
+                "validity"
+            ]
+        },
+        "metaAttribute_WeatherCloudy": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "uuidOfMedia": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type of attribute as string",
+                    "enum": [
+                        "weather"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of attribute as string",
+                    "enum": [
+                        "cloudy"
+                    ]
+                },
+                "value": {
+                    "type": "string",
+                    "description": "value of attribute as string",
+                    "enum": [
+                        "light",
+                        "moderate",
+                        "heavy",
+                        "none"
+                    ]
+                },
+                "validity": {
+                    "$ref": "#/definitions/temporalValidity"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "uuid",
+                "uuidOfMedia",
+                "type",
+                "name",
+                "value",
+                "validity"
+            ]
+        },
+        "metaAttribute_WeatherSunny": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "uuidOfMedia": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type of attribute as string",
+                    "enum": [
+                        "weather"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of attribute as string",
+                    "enum": [
+                        "sunny"
+                    ]
+                },
+                "value": {
+                    "type": "string",
+                    "description": "value of attribute as string",
+                    "enum": [
+                        "light",
+                        "moderate",
+                        "heavy",
+                        "none"
+                    ]
+                },
+                "validity": {
+                    "$ref": "#/definitions/temporalValidity"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "uuid",
+                "uuidOfMedia",
+                "type",
+                "name",
+                "value",
+                "validity"
+            ]
+        },
+        "metaAttribute_Visibility": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "uuidOfMedia": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type of attribute as string",
+                    "enum": [
+                        "visibility"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of attribute as string",
+                    "enum": [
+                        "poor",
+                        "medium",
+                        "clear"
+                    ]
+                },
+                "validity": {
+                    "$ref": "#/definitions/temporalValidity"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "uuid",
+                "uuidOfMedia",
+                "type",
+                "name",
+                "validity"
+            ]
+        },
+        "metaAttribute_RangeOfSight": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "uuidOfMedia": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type of attribute as string",
+                    "enum": [
+                        "rangeOfSight"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of attribute as string",
+                    "enum": [
+                        "<5m",
+                        "5m-20m",
+                        "20m-100m",
+                        "100m-500m",
+                        ">500m"
+                    ]
+                },
+                "validity": {
+                    "$ref": "#/definitions/temporalValidity"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "uuid",
+                "uuidOfMedia",
+                "type",
+                "name",
+                "validity"
+            ]
+        },
+        "metaAttribute_RoadType": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "uuidOfMedia": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type of attribute as string",
+                    "enum": [
+                        "roadType"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of attribute as string",
+                    "enum": [
+                        "city",
+                        "rural",
+                        "highway"
+                    ]
+                },
+                "validity": {
+                    "$ref": "#/definitions/temporalValidity"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "uuid",
+                "uuidOfMedia",
+                "type",
+                "name",
+                "validity"
+            ]
+        },
+        "metaAttribute_RoadCondition": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "uuidOfMedia": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type of attribute as string",
+                    "enum": [
+                        "roadCondition"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of attribute as string",
+                    "enum": [
+                        "good",
+                        "poor"
+                    ]
+                },
+                "validity": {
+                    "$ref": "#/definitions/temporalValidity"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "uuid",
+                "uuidOfMedia",
+                "type",
+                "name",
+                "validity"
+            ]
+        },
+        "objectAttribute_Truncation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type of attribute as string",
+                    "enum": [
+                        "truncation"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of attribute as string",
+                    "enum": [
+                        "0%",
+                        "<=25%",
+                        "25%-75%",
+                        ">75%"
+                    ]
+                }
+            },
+            "required": [
+                "uuid",
+                "type",
+                "name"
+            ]
+        },
+        "objectAttribute_Occlusion": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type of attribute as string",
+                    "enum": [
+                        "occlusion"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of attribute as string",
+                    "enum": [
+                        "0%",
+                        "<=25%",
+                        "25%-75%",
+                        ">75%"
+                    ]
+                }
+            },
+            "required": [
+                "uuid",
+                "type",
+                "name"
+            ]
+        },
+        "objectAttribute_Type": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type of attribute as string",
+                    "enum": [
+                        "type"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name of attribute as string",
+                    "enum": [
+                        "pedestrian",
+                        "vehicle",
+                        "trafficSign",
+                        "roadMarking"
+                    ]
+                }
+            },
+            "required": [
+                "uuid",
+                "type",
+                "name"
+            ]
+        }
+    }
+}
