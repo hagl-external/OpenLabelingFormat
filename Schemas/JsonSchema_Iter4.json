@@ -1,0 +1,1171 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/ADAS-API/OpenLabelFormat/blob/master/schema.json",
+    "type": "object",
+    "title": "OpenLabelFormat",
+    "description": "Created with Liquid Studio 2019 (https://www.liquid-technologies.com)",
+    "additionalProperties": false,
+    "properties": {
+        "versionInfo": {
+            "type": "object",
+            "description": "Versions of schema and label files as string.",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Constant 'OpenLabelFormat' naming the label file.",
+                    "const": "OpenLabelFormat"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "String containing version of schema used for validation."
+                },
+                "labelFile": {
+                    "type": "string",
+                    "description": "String containing version of label file."
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "schema",
+                "labelFile",
+                "name"
+            ]
+        },
+        "projectInfo": {
+            "type": "object",
+            "description": "Project settings.",
+            "additionalProperties": false,
+            "properties": {
+                "intervals": {
+                    "type": "array",
+                    "description": "Analyzed frames or time stamps within media file(s). Must be accumulated over consecutive media files, e. g. frame 0 of media file following a 100 frames media file should be frame 101 etc.",
+                    "items": {
+                        "type": "number",
+                        "description": "Frame no. or time stamp.",
+                        "minimum": 0
+                    }
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "Unit of configured start/end/skip or interval settings.",
+                    "enum": [
+                        "frames",
+                        "ms",
+                        "s"
+                    ]
+                },
+                "configs": {
+                    "type": "array",
+                    "description": "List of references to external configuration files.",
+                    "items": {
+                        "$ref": "#/definitions/fileReference"
+                    }
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "unit",
+                "intervals"
+            ]
+        },
+        "odometryInfo": {
+            "type": "object",
+            "description": "Details about corresponding egomotion file(s).",
+            "additionalProperties": false,
+            "properties": {
+                "references": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/fileReferenceWithMediaReference"
+                    }
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "references"
+            ]
+        },
+        "calibrationInfo": {
+            "type": "object",
+            "description": "Details about corresponding calibration file(s).",
+            "additionalProperties": false,
+            "properties": {
+                "references": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/fileReferenceWithMediaReference"
+                    }
+                },
+                "coordinateSystems": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/coordinateSystem"
+                    }
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "references"
+            ]
+        },
+        "positionInfo": {
+            "type": "object",
+            "description": "Details about corresponding position file(s), e. g. GPS.",
+            "additionalProperties": false,
+            "properties": {
+                "references": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/fileReferenceWithMediaReference"
+                    }
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "references"
+            ]
+        },
+        "mediaInfo": {
+            "type": "object",
+            "description": "Details about used media file(s).",
+            "additionalProperties": false,
+            "properties": {
+                "references": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/mediaReference"
+                    }
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "references"
+            ]
+        },
+        "metaInfo": {
+            "type": "array",
+            "description": "Array of attributes valid for parts of or the entire media file(s).",
+            "items": {
+                "$ref": "#/definitions/metaAttribute"
+            }
+        },
+        "objectInfo": {
+            "type": "array",
+            "description": "Array of labeled objects.",
+            "items": {
+                "$ref": "#/definitions/object"
+            }
+        }
+    },
+    "required": [
+        "versionInfo",
+        "projectInfo",
+        "mediaInfo",
+        "objectInfo",
+        "positionInfo",
+        "calibrationInfo",
+        "odometryInfo",
+        "metaInfo"
+    ],
+    "definitions": {
+        "uuid": {
+            "type": "string",
+            "description": "36-hex-digit uuid string containing dashes, i. e. 8-4-4-4-12.",
+            "maxLength": 36,
+            "minLength": 36,
+            "format": "uuid"
+        },
+        "hash": {
+            "type": "object",
+            "description": "Describing hash value and method.",
+            "additionalProperties": false,
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "description": "Hash value as string."
+                },
+                "method": {
+                    "type": "string",
+                    "description": "Used hashing method.",
+                    "enum": [
+                        "md5",
+                        "sha-1",
+                        "sha-224",
+                        "sha-256",
+                        "sha-384",
+                        "sha-512",
+                        "ripemd-160"
+                    ]
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "value",
+                "method"
+            ]
+        },
+        "agent": {
+            "type": "object",
+            "description": "Properties of a label agent.",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "dateTime": {
+                    "type": "string",
+                    "description": "Date-time as defined by RFC3339.",
+                    "format": "date-time"
+                }
+            },
+            "required": [
+                "dateTime"
+            ]
+        },
+        "history": {
+            "type": "object",
+            "description": "Tracks the history of a, reference, attribute or object.",
+            "additionalProperties": false,
+            "properties": {
+                "created": {
+                    "$ref": "#/definitions/agent"
+                },
+                "modified": {
+                    "$ref": "#/definitions/agent"
+                }
+            },
+            "required": [
+                "modified",
+                "created"
+            ]
+        },
+        "relation": {
+            "type": "object",
+            "description": "Relations from an object to other or objects.",
+            "properties": {
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "anyOf": [
+                {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "uuidOfParent": {
+                            "$ref": "#/definitions/uuid"
+                        }
+                    },
+                    "required": [
+                        "uuidOfParent"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "uuidOfSibling": {
+                            "$ref": "#/definitions/uuid"
+                        }
+                    },
+                    "required": [
+                        "uuidOfSibling"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "uuidOfChild": {
+                            "$ref": "#/definitions/uuid"
+                        }
+                    },
+                    "required": [
+                        "uuidOfChild"
+                    ]
+                }
+            ]
+        },
+        "temporalValidity": {
+            "type": "object",
+            "description": "Temporal validity of an object or attribute.",
+            "additionalProperties": false,
+            "properties": {
+                "start": {
+                    "type": "number",
+                    "description": "Start of temporal validity. Must be accumulated over concecutive media files, e. g. frame 0 of media file following a 100 frames media file should be frame 101 etc.",
+                    "minimum": 0
+                },
+                "end": {
+                    "type": "number",
+                    "description": "End of temporal validity. Must be accumulated over concecutive media files, e. g. frame 0 of media file following a 100 frames media file should be frame 101 etc.",
+                    "minimum": 0
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "Unit of temporal validity."
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "start",
+                "end",
+                "unit"
+            ]
+        },
+        "temporalValiditySingle": {
+            "type": "object",
+            "description": "Temporal validity of an object or attribute.",
+            "additionalProperties": false,
+            "properties": {
+                "at": {
+                    "type": "number",
+                    "description": "Temporal validity. Must be accumulated over concecutive media files, e. g. frame 0 of media file following a 100 frames media file should be frame 101 etc.",
+                    "minimum": 0
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "Unit of temporal validity."
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "unit",
+                "at"
+            ]
+        },
+        "coordinate1D": {
+            "type": "object",
+            "description": "Cartesian coordinate in 2d space.",
+            "additionalProperties": false,
+            "properties": {
+                "x": {
+                    "type": "number",
+                    "description": "X-coordinate."
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "Unit of coordinates.",
+                    "enum": [
+                        "px",
+                        "mm",
+                        "cm",
+                        "m"
+                    ]
+                }
+            },
+            "required": [
+                "x",
+                "unit"
+            ]
+        },
+        "coordinate2D": {
+            "type": "object",
+            "description": "Cartesian coordinate in 2d space.",
+            "additionalProperties": false,
+            "properties": {
+                "x": {
+                    "type": "number",
+                    "description": "X-coordinate."
+                },
+                "y": {
+                    "type": "number",
+                    "description": "Y-coordinate."
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "Unit of coordinates.",
+                    "enum": [
+                        "px",
+                        "mm",
+                        "cm",
+                        "m"
+                    ]
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "x",
+                "y",
+                "unit"
+            ]
+        },
+        "coordinate3D": {
+            "type": "object",
+            "description": "Cartesian coordinate in 3d space.",
+            "additionalProperties": false,
+            "properties": {
+                "x": {
+                    "type": "number",
+                    "description": "X-coordinate."
+                },
+                "y": {
+                    "type": "number",
+                    "description": "Y-coordinate."
+                },
+                "z": {
+                    "type": "number",
+                    "description": "Z-coordinate."
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "Unit of coordinates.",
+                    "enum": [
+                        "px",
+                        "mm",
+                        "cm",
+                        "m"
+                    ]
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "x",
+                "y",
+                "z",
+                "unit"
+            ]
+        },
+        "coordinateSystem2D": {
+            "type": "object",
+            "description": "Defines a coordinate system in 2D space.",
+            "properties": {
+                "translation": {
+                    "$ref": "#/definitions/coordinate2D"
+                },
+                "rotation": {
+                    "$ref": "#/definitions/rotation2D"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "translation",
+                "rotation"
+            ]
+        },
+        "coordinateSystem3D": {
+            "type": "object",
+            "description": "Defines a coordinate system in 3D space.",
+            "properties": {
+                "translation": {
+                    "$ref": "#/definitions/coordinate3D"
+                },
+                "rotation": {
+                    "$ref": "#/definitions/rotation3D"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "translation",
+                "rotation"
+            ]
+        },
+        "coordinateSystem": {
+            "type": "object",
+            "description": "Defines a coordinate system.",
+            "properties": {
+                "nameOfMedia": {
+                    "type": "string"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "nameOfMedia"
+            ],
+            "anyOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "coordinateSystem2D": {
+                            "$ref": "#/definitions/coordinateSystem2D"
+                        }
+                    },
+                    "required": [
+                        "coordinateSystem2D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "coordinateSystem3D": {
+                            "$ref": "#/definitions/coordinateSystem3D"
+                        }
+                    },
+                    "required": [
+                        "coordinateSystem3D"
+                    ]
+                }
+            ]
+        },
+        "rotation2D": {
+            "type": "object",
+            "description": "Defines rotation in 2D space.",
+            "additionalProperties": false,
+            "properties": {
+                "angle": {
+                    "type": "number",
+                    "description": "Rotation angle."
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "Unit of angle.",
+                    "enum": [
+                        "deg",
+                        "rad"
+                    ]
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "angle",
+                "unit"
+            ]
+        },
+        "rotation3D": {
+            "type": "object",
+            "description": "Defines rotation in 3D space.",
+            "additionalProperties": false,
+            "properties": {
+                "x": {
+                    "type": "number",
+                    "description": "Rotation around x axis.",
+                    "maximum": 360,
+                    "minimum": -360
+                },
+                "y": {
+                    "type": "number",
+                    "description": "Rotation around y axis.",
+                    "maximum": 360,
+                    "minimum": -360
+                },
+                "z": {
+                    "type": "number",
+                    "description": "Rotation around z axis.",
+                    "maximum": 360,
+                    "minimum": -360
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "deg",
+                        "rad"
+                    ]
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "x",
+                "y",
+                "z",
+                "unit"
+            ]
+        },
+        "shape2D": {
+            "type": "object",
+            "description": "defines 2D shapes of an 2D object",
+            "required": [],
+            "anyOf": [
+                {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "line2D": {
+                            "type": "object",
+                            "description": "Defines a line from two points.",
+                            "additionalProperties": false,
+                            "properties": {
+                                "start": {
+                                    "$ref": "#/definitions/coordinate2D"
+                                },
+                                "end": {
+                                    "$ref": "#/definitions/coordinate2D"
+                                },
+                                "history": {
+                                    "$ref": "#/definitions/history"
+                                }
+                            },
+                            "required": [
+                                "start",
+                                "end"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "line2D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "box2D": {
+                            "type": "object",
+                            "description": "Defines a bounding box in 2D space.",
+                            "additionalProperties": false,
+                            "properties": {
+                                "topLeft": {
+                                    "$ref": "#/definitions/coordinate2D"
+                                },
+                                "bottomRight": {
+                                    "$ref": "#/definitions/coordinate2D"
+                                },
+                                "rotation": {
+                                    "$ref": "#/definitions/rotation2D"
+                                },
+                                "history": {
+                                    "$ref": "#/definitions/history"
+                                }
+                            },
+                            "required": [
+                                "topLeft",
+                                "bottomRight",
+                                "rotation"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "box2D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "points2D": {
+                            "type": "array",
+                            "description": "Array of points in 2D space.",
+                            "items": {
+                                "$ref": "#/definitions/coordinate2D"
+                            }
+                        }
+                    },
+                    "required": [
+                        "points2D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "mask2D": {
+                            "type": "string",
+                            "description": "Run-length encoded (RLE)"
+                        }
+                    },
+                    "required": [
+                        "mask2D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "polyLine2D": {
+                            "type": "array",
+                            "description": "Open-ended poly line in 2D space.",
+                            "items": {
+                                "$ref": "#/definitions/coordinate2D"
+                            }
+                        }
+                    },
+                    "required": [
+                        "polyLine2D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "polygon2D": {
+                            "type": "array",
+                            "description": "Closed polygon in 2D space.",
+                            "items": {
+                                "$ref": "#/definitions/coordinate2D"
+                            }
+                        }
+                    },
+                    "required": [
+                        "polygon2D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "ellipse2D": {
+                            "type": "object",
+                            "description": "Ellipse in 2D space.",
+                            "additionalProperties": false,
+                            "properties": {
+                                "center": {
+                                    "$ref": "#/definitions/coordinate2D"
+                                },
+                                "semi-major": {
+                                    "$ref": "#/definitions/coordinate1D"
+                                },
+                                "semi-minor": {
+                                    "$ref": "#/definitions/coordinate1D"
+                                },
+                                "rotation": {
+                                    "$ref": "#/definitions/rotation2D"
+                                },
+                                "history": {
+                                    "$ref": "#/definitions/history"
+                                }
+                            },
+                            "required": [
+                                "center",
+                                "semi-major",
+                                "semi-minor",
+                                "rotation"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "ellipse2D"
+                    ]
+                }
+            ]
+        },
+        "shape3D": {
+            "type": "object",
+            "description": "defines 3D shapes of an 3D object",
+            "required": [],
+            "anyOf": [
+                {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "line3D": {
+                            "type": "object",
+                            "description": "Defines a line from 2 points",
+                            "additionalProperties": false,
+                            "properties": {
+                                "start": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                },
+                                "end": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                },
+                                "history": {
+                                    "$ref": "#/definitions/history"
+                                }
+                            },
+                            "required": [
+                                "start",
+                                "end"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "line3D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "plane3D": {
+                            "type": "object",
+                            "description": "Defines a plane from 3 vectors",
+                            "additionalProperties": false,
+                            "properties": {
+                                "vectorP": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                },
+                                "vectorU": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                },
+                                "vectorV": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                },
+                                "history": {
+                                    "$ref": "#/definitions/history"
+                                }
+                            },
+                            "required": [
+                                "vectorV",
+                                "vectorU",
+                                "vectorP"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "plane3D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "points3D": {
+                            "type": "array",
+                            "description": "Array of points in 3D space.",
+                            "items": {
+                                "$ref": "#/definitions/coordinate3D"
+                            }
+                        }
+                    },
+                    "required": [
+                        "points3D"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "box3D": {
+                            "type": "object",
+                            "description": "Defines a bounding box in 3D space.",
+                            "additionalProperties": false,
+                            "properties": {
+                                "topLeft": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                },
+                                "bottomRight": {
+                                    "$ref": "#/definitions/coordinate3D"
+                                },
+                                "rotation": {
+                                    "$ref": "#/definitions/rotation3D"
+                                },
+                                "history": {
+                                    "$ref": "#/definitions/history"
+                                }
+                            },
+                            "required": [
+                                "rotation",
+                                "bottomRight",
+                                "topLeft"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "box3D"
+                    ]
+                }
+            ]
+        },
+        "shape": {
+            "type": "object",
+            "description": "defines different shapes of an object",
+            "properties": {
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [],
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/shape2D"
+                },
+                {
+                    "$ref": "#/definitions/shape3D"
+                }
+            ]
+        },
+        "shapeGroup": {
+            "type": "object",
+            "description": "Defines a shape group, i. e. a combination of shapes.",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "instructions": {
+                    "type": "string",
+                    "description": "Optional freetext description on how shapes must be interpreted."
+                },
+                "validity": {
+                    "$ref": "#/definitions/temporalValiditySingle"
+                },
+                "shapes": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/definitions/shape"
+                    }
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "validity",
+                "shapes",
+                "uuid"
+            ]
+        },
+        "mediaReference": {
+            "type": "object",
+            "description": "Details of a reference to a media file.",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Unique name of media file."
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL pointing to media file.",
+                    "format": "uri"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "media MIME type",
+                    "enum": [
+                        "image/jpeg",
+                        "image/png",
+                        "video/mp4",
+                        "video/x-msvideo",
+                        "pointcloud/pcl"
+                    ]
+                },
+                "codec": {
+                    "type": "string",
+                    "description": "media codec"
+                },
+                "duration": {
+                    "type": "number",
+                    "description": "duration of mediafile in seconds, -1 if not applicable",
+                    "minimum": -1
+                },
+                "framerate": {
+                    "type": "integer",
+                    "description": "framerate of media file, -1 if not applicable",
+                    "minimum": -1
+                },
+                "width": {
+                    "type": "integer",
+                    "description": "spatial horizontal resolution, -1 if not applicable",
+                    "minimum": -1
+                },
+                "height": {
+                    "type": "integer",
+                    "description": "spatial vertical resolution, -1 if not applicable",
+                    "minimum": -1
+                },
+                "hash": {
+                    "$ref": "#/definitions/hash"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "name",
+                "url",
+                "type"
+            ]
+        },
+        "fileReference": {
+            "type": "object",
+            "description": "Details of a reference to a file.",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Unique name of referenced file."
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL pointing to referenced file.",
+                    "format": "uri"
+                },
+                "hash": {
+                    "$ref": "#/definitions/hash"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "name",
+                "url"
+            ]
+        },
+        "fileReferenceWithMediaReference": {
+            "type": "object",
+            "description": "Details of a reference to a file, including reference to corresponding media file.",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Unique name of referenced file."
+                },
+                "nameOfMedia": {
+                    "type": "string",
+                    "description": "Unique name of corresponding media file."
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL pointing to referenced file.",
+                    "format": "uri"
+                },
+                "hash": {
+                    "$ref": "#/definitions/hash"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "name",
+                "url",
+                "nameOfMedia"
+            ]
+        },
+        "metaAttribute": {
+            "type": "object",
+            "description": "Global attribute associated with scene at a given period in time.",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "nameOfMedia": {
+                    "type": "string",
+                    "description": "Reference to unique media file name."
+                },
+                "attributeName": {
+                    "type": "array",
+                    "description": "Array representing attribute hierarchy, i. e. second array element is sub-attribute of first array element etc.",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "validity": {
+                    "$ref": "#/definitions/temporalValidity"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "uuid",
+                "validity",
+                "nameOfMedia",
+                "attributeName"
+            ]
+        },
+        "objectAttribute": {
+            "type": "object",
+            "description": "Attribute associated with an object at a given point in time.",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "attributeNames": {
+                    "type": "array",
+                    "description": "Array representing attribute hierarchy, i. e. second array element is sub-attribute of first array element etc.",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "validity": {
+                    "$ref": "#/definitions/temporalValiditySingle"
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "validity",
+                "attributeNames",
+                "uuid"
+            ]
+        },
+        "object": {
+            "type": "object",
+            "description": "defines one object to be labeled",
+            "additionalProperties": false,
+            "properties": {
+                "uuid": {
+                    "$ref": "#/definitions/uuid"
+                },
+                "nameOfMedia": {
+                    "type": "string",
+                    "description": "Reference to unique media file name."
+                },
+                "class": {
+                    "type": "string",
+                    "description": "Class of the object",
+                    "examples": [
+                        "pedestrian",
+                        "vehicle",
+                        "trafficSign",
+                        "roadMarking"
+                    ]
+                },
+                "attributes": {
+                    "type": "array",
+                    "description": "attributes of this object",
+                    "items": {
+                        "$ref": "#/definitions/objectAttribute"
+                    }
+                },
+                "shapeGroups": {
+                    "type": "array",
+                    "description": "shapes of this object",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/definitions/shapeGroup"
+                    }
+                },
+                "relations": {
+                    "type": "array",
+                    "description": "relations of this object to other objects",
+                    "items": {
+                        "$ref": "#/definitions/relation"
+                    }
+                },
+                "history": {
+                    "$ref": "#/definitions/history"
+                }
+            },
+            "required": [
+                "uuid",
+                "attributes",
+                "relations",
+                "nameOfMedia",
+                "shapeGroups",
+                "class"
+            ]
+        }
+    }
+}

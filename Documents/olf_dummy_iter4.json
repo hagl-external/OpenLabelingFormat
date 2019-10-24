@@ -1,0 +1,650 @@
+﻿{
+    "versionInfo": {
+        "schema": "0.4",
+        "labelFile": "0.1",
+        "name": "OpenLabelFormat",
+        "history": {
+            "created": {
+                "uuid": "00000000-0000-0000-C000-000000000042",
+                "dateTime": "1996-12-19T16:39:57.23-08:00"
+            },
+            "modified": {
+                "uuid": "00000000-0000-0000-C000-000000000042",
+                "dateTime": "1996-12-19T16:39:57.23-08:00"
+            }
+        }
+    },
+    "projectInfo": {
+        "unit": "frames",
+        "intervals": [
+            0,
+            21,
+            43,
+            65
+        ],
+        "history": {
+            "modified": {
+                "uuid": "00000000-0000-0000-C000-000000000042",
+                "dateTime": "1996-12-19T16:39:57.23-08:00"
+            },
+            "created": {
+                "uuid": "00000000-0000-0000-C000-000000000042",
+                "dateTime": "1996-12-19T16:39:57.23-08:00"
+            }
+        },
+        "configs": [
+            {
+                "name": "ABCDEFGHIJKLMNOPQR",
+                "url": "file://ABCDEF",
+                "hash": {
+                    "value": "ABCDEF",
+                    "method": "ripemd-160",
+                    "history": {
+                        "modified": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        },
+                        "created": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        }
+                    }
+                },
+                "history": {
+                    "modified": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    },
+                    "created": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    }
+                }
+            },
+            {
+                "name": "ABCDEFGHIJKLMNOPQR",
+                "url": "file://ABCDEF",
+                "hash": {
+                    "value": "ABCDEF",
+                    "method": "ripemd-160",
+                    "history": {
+                        "modified": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        },
+                        "created": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        }
+                    }
+                },
+                "history": {
+                    "modified": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    },
+                    "created": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    }
+                }
+            }
+        ]
+    },
+    "odometryInfo": {
+        "references": [
+            {
+                "name": "ABCDEFGHIJKLMNOPQRSTUVWXYZAB",
+                "url": "file://ABCD",
+                "nameOfMedia": "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+                "hash": {
+                    "value": "ABCDEFGHIJKLMNO",
+                    "method": "ripemd-160",
+                    "history": {
+                        "modified": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        },
+                        "created": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        }
+                    }
+                },
+                "history": {
+                    "modified": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    },
+                    "created": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    }
+                }
+            },
+            {
+                "name": "ABCDEFGHIJKLMNOPQRSTUVWXYZAB",
+                "url": "file://ABCD",
+                "nameOfMedia": "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+                "hash": {
+                    "value": "ABCDEFGHIJKLMNO",
+                    "method": "ripemd-160",
+                    "history": {
+                        "modified": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        },
+                        "created": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        }
+                    }
+                },
+                "history": {
+                    "modified": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    },
+                    "created": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    }
+                }
+            }
+        ]
+    },
+    "calibrationInfo": {
+            "references": [
+                {
+                    "name": "ABCDEFGHIJKLMNOPQRSTUVWXYZAB",
+                    "url": "file://ABCD",
+                    "nameOfMedia": "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+                    "hash": {
+                        "value": "ABCDEFGHIJKLMNO",
+                        "method": "ripemd-160",
+                        "history": {
+                            "modified": {
+                                "uuid": "00000000-0000-0000-C000-000000000042",
+                                "dateTime": "1996-12-19T16:39:57.23-08:00"
+                            },
+                            "created": {
+                                "uuid": "00000000-0000-0000-C000-000000000042",
+                                "dateTime": "1996-12-19T16:39:57.23-08:00"
+                            }
+                        }
+                    },
+                    "history": {
+                        "modified": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        },
+                        "created": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        }
+                    }
+                },
+                {
+                    "name": "ABCDEFGHIJKLMNOPQRSTUVWXYZAB",
+                    "url": "file://ABCD",
+                    "nameOfMedia": "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+                    "hash": {
+                        "value": "ABCDEFGHIJKLMNO",
+                        "method": "ripemd-160",
+                        "history": {
+                            "modified": {
+                                "uuid": "00000000-0000-0000-C000-000000000042",
+                                "dateTime": "1996-12-19T16:39:57.23-08:00"
+                            },
+                            "created": {
+                                "uuid": "00000000-0000-0000-C000-000000000042",
+                                "dateTime": "1996-12-19T16:39:57.23-08:00"
+                            }
+                        }
+                    },
+                    "history": {
+                        "modified": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        },
+                        "created": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        }
+                    }
+                }
+            ],
+            "coordinateSystems": [
+                {
+                    "nameOfMedia": "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+                    "history": {
+                        "modified": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        },
+                        "created": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        }
+                    },
+                    "coordinateSystem2D": {
+                        "translation": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "unit": "px"
+                        },
+                        "rotation": {
+                            "angle": 0.0,
+                            "unit": "rad"
+                        },
+                        "history": {
+                            "modified": {
+                                "uuid": "00000000-0000-0000-C000-000000000042",
+                                "dateTime": "1996-12-19T16:39:57.23-08:00"
+                            },
+                            "created": {
+                                "uuid": "00000000-0000-0000-C000-000000000042",
+                                "dateTime": "1996-12-19T16:39:57.23-08:00"
+                            }
+                        }
+                    }
+                },
+                {
+                    "nameOfMedia": "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+                    "history": {
+                        "modified": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        },
+                        "created": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        }
+                    },
+                    "coordinateSystem3D": {
+                        "translation": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0,
+                            "unit": "px",
+                            "history": {
+                                "modified": {
+                                    "uuid": "00000000-0000-0000-C000-000000000042",
+                                    "dateTime": "1996-12-19T16:39:57.23-08:00"
+                                },
+                                "created": {
+                                    "uuid": "00000000-0000-0000-C000-000000000042",
+                                    "dateTime": "1996-12-19T16:39:57.23-08:00"
+                                }
+                            }
+                        },
+                        "rotation": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0,
+                            "unit": "rad",
+                            "history": {
+                                "modified": {
+                                    "uuid": "00000000-0000-0000-C000-000000000042",
+                                    "dateTime": "1996-12-19T16:39:57.23-08:00"
+                                },
+                                "created": {
+                                    "uuid": "00000000-0000-0000-C000-000000000042",
+                                    "dateTime": "1996-12-19T16:39:57.23-08:00"
+                                }
+                            }
+                        },
+                        "history": {
+                            "modified": {
+                                "uuid": "00000000-0000-0000-C000-000000000042",
+                                "dateTime": "1996-12-19T16:39:57.23-08:00"
+                            },
+                            "created": {
+                                "uuid": "00000000-0000-0000-C000-000000000042",
+                                "dateTime": "1996-12-19T16:39:57.23-08:00"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "positionInfo": {
+            "references": [
+                {
+                    "name": "ABCDEFGHIJKLMNOPQRSTUVWXYZAB",
+                    "url": "file://ABCD",
+                    "nameOfMedia": "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+                    "hash": {
+                        "value": "ABCDEFGHIJKLMNO",
+                        "method": "ripemd-160",
+                        "history": {
+                            "modified": {
+                                "uuid": "00000000-0000-0000-C000-000000000042",
+                                "dateTime": "1996-12-19T16:39:57.23-08:00"
+                            },
+                            "created": {
+                                "uuid": "00000000-0000-0000-C000-000000000042",
+                                "dateTime": "1996-12-19T16:39:57.23-08:00"
+                            }
+                        }
+                },
+                "history": {
+                    "modified": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    },
+                    "created": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    }
+                }
+            },
+            {
+                "name": "ABCDEFGHIJKLMNOPQRSTUVWXYZAB",
+                "url": "file://ABCD",
+                "nameOfMedia": "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+                "hash": {
+                    "value": "ABCDEFGHIJKLMNO",
+                    "method": "ripemd-160",
+                    "history": {
+                        "modified": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        },
+                        "created": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        }
+                    }
+                },
+                "history": {
+                    "modified": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    },
+                    "created": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    }
+                }
+            }
+        ]
+    },
+    "mediaInfo": {
+        "references": [
+            {
+                "name": "ABCDE",
+                "url": "file://ABCDEF",
+                "type": "image/png",
+                "codec": "ABCDEFGHIJKL",
+                "duration": 885,
+                "framerate": 959,
+                "width": 657,
+                "height": 683,
+                "hash": {
+                    "value": "ABCDEFGHIJKLMNOPQRSTUV",
+                    "method": "ripemd-160",
+                    "history": {
+                        "modified": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        },
+                        "created": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        }
+                    }
+                },
+                "history": {
+                    "modified": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    },
+                    "created": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    }
+                }
+            },
+            {
+                "name": "ABCDE",
+                "url": "file://ABCDEF",
+                "type": "image/png",
+                "codec": "ABCDEFGHIJKL",
+                "duration": 885,
+                "framerate": 959,
+                "width": 657,
+                "height": 683,
+                "hash": {
+                    "value": "ABCDEFGHIJKLMNOPQRSTUV",
+                    "method": "ripemd-160",
+                    "history": {
+                        "modified": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        },
+                        "created": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        }
+                    }
+                },
+                "history": {
+                    "modified": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    },
+                    "created": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    }
+                }
+            }
+        ],
+        "history": {
+            "modified": {
+                "uuid": "00000000-0000-0000-C000-000000000042",
+                "dateTime": "1996-12-19T16:39:57.23-08:00"
+            },
+            "created": {
+                "uuid": "00000000-0000-0000-C000-000000000042",
+                "dateTime": "1996-12-19T16:39:57.23-08:00"
+            }
+        }
+    },
+    "metaInfo": [
+        {
+            "uuid": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJ",
+            "validity": {
+                "start": 702.75,
+                "end": 861.75,
+                "unit": "ABCDEFGHIJKLMN",
+                "history": {
+                    "modified": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    },
+                    "created": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    }
+                }
+            },
+            "nameOfMedia": "ABCDEFGHIJKLMNOPQRSTUVWXY",
+            "attributeName": [
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZABC",
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+                "ABCDEFGHIJ",
+                "ABCD",
+                "ABCDEFGHIJKLMNO"
+            ],
+            "history": {
+                "modified": {
+                    "uuid": "00000000-0000-0000-C000-000000000042",
+                    "dateTime": "1996-12-19T16:39:57.23-08:00"
+                },
+                "created": {
+                    "uuid": "00000000-0000-0000-C000-000000000042",
+                    "dateTime": "1996-12-19T16:39:57.23-08:00"
+                }
+            }
+        },
+        {
+            "uuid": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJ",
+            "validity": {
+                "start": 702.75,
+                "end": 861.75,
+                "unit": "ABCDEFGHIJKLMN",
+                "history": {
+                    "modified": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    },
+                    "created": {
+                        "uuid": "00000000-0000-0000-C000-000000000042",
+                        "dateTime": "1996-12-19T16:39:57.23-08:00"
+                    }
+                }
+            },
+            "nameOfMedia": "ABCDEFGHIJKLMNOPQRSTUVWXY",
+            "attributeName": [
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZABC",
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+                "ABCDEFGHIJ",
+                "ABCD",
+                "ABCDEFGHIJKLMNO"
+            ],
+            "history": {
+                "modified": {
+                    "uuid": "00000000-0000-0000-C000-000000000042",
+                    "dateTime": "1996-12-19T16:39:57.23-08:00"
+                },
+                "created": {
+                    "uuid": "00000000-0000-0000-C000-000000000042",
+                    "dateTime": "1996-12-19T16:39:57.23-08:00"
+                }
+            }
+        }
+    ],
+    "objectInfo": [
+        {
+            "uuid": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJ",
+            "nameOfMedia": "ABCDEFGHIJKLMNOPQRSTUVWXY",
+            "class": "vehicle",
+            "attributes": [
+                {
+                    "uuid": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJ",
+                    "attributeNames": [
+                        "ABCDEFGHIJKLMNOPQRSTUVWXYZABC",
+                        "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+                        "ABCDEFGHIJ",
+                        "ABCD",
+                        "ABCDEFGHIJKLMNO"
+                    ],
+                    "validity": {
+                        "at": 0.0,
+                        "unit": "",
+                        "history": {
+                            "modified": {
+                                "uuid": "00000000-0000-0000-C000-000000000042",
+                                "dateTime": "1996-12-19T16:39:57.23-08:00"
+                            },
+                            "created": {
+                                "uuid": "00000000-0000-0000-C000-000000000042",
+                                "dateTime": "1996-12-19T16:39:57.23-08:00"
+                            }
+                        } 
+                    }
+                }
+            ],
+            "shapeGroups": [
+                {
+                    "uuid": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJ",
+                    "instructions": "Bla bla bla",
+                    "validity": {
+                        "at": 0.0,
+                        "unit": "",
+                        "history": {
+                            "modified": {
+                                "uuid": "00000000-0000-0000-C000-000000000042",
+                                "dateTime": "1996-12-19T16:39:57.23-08:00"
+                            },
+                            "created": {
+                                "uuid": "00000000-0000-0000-C000-000000000042",
+                                "dateTime": "1996-12-19T16:39:57.23-08:00"
+                            }
+                        }
+                    },
+                    "shapes": [
+                        {
+                            "box2D": {
+                                "topLeft": {
+                                    "x": 85.25,
+                                    "y": 321,
+                                    "unit": "cm"
+                                },
+                                "bottomRight": {
+                                    "x": 701,
+                                    "y": 148.75,
+                                    "unit": "cm"
+                                },
+                                "rotation": {
+                                    "angle": 602.5,
+                                    "unit": "deg"
+                                }
+                            }
+                        }
+                    ],
+                    "history": {
+                        "modified": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        },
+                        "created": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        }
+                    }
+                }
+            ],
+            "relations": [
+                {
+                    "uuidOfParent": "00000000-0000-0000-C000-000000000042",
+                    "history": {
+                        "modified": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        },
+                        "created": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        }
+                    }
+                },
+                {
+                    "uuidOfChild": "00000000-0000-0000-C000-000000000042",
+                    "history": {
+                        "modified": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        },
+                        "created": {
+                            "uuid": "00000000-0000-0000-C000-000000000042",
+                            "dateTime": "1996-12-19T16:39:57.23-08:00"
+                        }
+                    }
+                }
+            ],
+            "history": {
+                "modified": {
+                    "uuid": "00000000-0000-0000-C000-000000000042",
+                    "dateTime": "1996-12-19T16:39:57.23-08:00"
+                },
+                "created": {
+                    "uuid": "00000000-0000-0000-C000-000000000042",
+                    "dateTime": "1996-12-19T16:39:57.23-08:00"
+                }
+            }
+        }
+    ]
+}
