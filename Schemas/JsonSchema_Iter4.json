@@ -87,10 +87,7 @@
                 "history": {
                     "$ref": "#/definitions/history"
                 }
-            },
-            "required": [
-                "references"
-            ]
+            }
         },
         "calibrationInfo": {
             "type": "object",
@@ -112,10 +109,7 @@
                 "history": {
                     "$ref": "#/definitions/history"
                 }
-            },
-            "required": [
-                "references"
-            ]
+            }
         },
         "positionInfo": {
             "type": "object",
@@ -131,10 +125,7 @@
                 "history": {
                     "$ref": "#/definitions/history"
                 }
-            },
-            "required": [
-                "references"
-            ]
+            }
         },
         "mediaInfo": {
             "type": "object",
@@ -318,7 +309,12 @@
                 },
                 "unit": {
                     "type": "string",
-                    "description": "Unit of temporal validity."
+                    "description": "Unit of temporal validity.",
+                    "enum": [
+                        "frames",
+                        "ms",
+                        "s"
+                    ]
                 },
                 "history": {
                     "$ref": "#/definitions/history"
@@ -342,7 +338,12 @@
                 },
                 "unit": {
                     "type": "string",
-                    "description": "Unit of temporal validity."
+                    "description": "Unit of temporal validity.",
+                    "enum": [
+                        "frames",
+                        "ms",
+                        "s"
+                    ]
                 },
                 "history": {
                     "$ref": "#/definitions/history"

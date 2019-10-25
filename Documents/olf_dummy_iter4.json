@@ -458,7 +458,7 @@
             "validity": {
                 "start": 702.75,
                 "end": 861.75,
-                "unit": "ABCDEFGHIJKLMN",
+                "unit": "frames",
                 "history": {
                     "modified": {
                         "uuid": "00000000-0000-0000-C000-000000000042",
@@ -494,7 +494,7 @@
             "validity": {
                 "start": 702.75,
                 "end": 861.75,
-                "unit": "ABCDEFGHIJKLMN",
+                "unit": "frames",
                 "history": {
                     "modified": {
                         "uuid": "00000000-0000-0000-C000-000000000042",
@@ -543,7 +543,7 @@
                     ],
                     "validity": {
                         "at": 0.0,
-                        "unit": "",
+                        "unit": "frames",
                         "history": {
                             "modified": {
                                 "uuid": "00000000-0000-0000-C000-000000000042",
@@ -563,7 +563,7 @@
                     "instructions": "Bla bla bla",
                     "validity": {
                         "at": 0.0,
-                        "unit": "",
+                        "unit": "ms",
                         "history": {
                             "modified": {
                                 "uuid": "00000000-0000-0000-C000-000000000042",
