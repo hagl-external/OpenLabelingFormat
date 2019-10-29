@@ -1,11 +1,7 @@
 import json
 import uuid
 import mimetypes
-import datetime
 import pandas as pd
-
-with open ('instances_val2014.json', 'r') as f:
-    coco = json.load(f)
 
 def md5Checksum(filePath, url = None):
     import requests
@@ -50,8 +46,7 @@ def coco_objectInfo(coco_annotations, coco_categories, coco_images):
     for coco_annotation in coco_annotations:
         i += 1
         if i % 1000 == 0:
-            print(i)
-        #    break
+            print(f"Processed {i} of {len(coco_annotations)}")
         obj = {
             "uuid": str(uuid.uuid4()),
             "nameOfMedia": df_coco_images[df_coco_images["id"] == coco_annotation["image_id"]]["file_name"].to_string(index = False).lstrip(),
@@ -88,43 +83,53 @@ def coco_objectInfo(coco_annotations, coco_categories, coco_images):
         olf_objectInfo.append(obj)
     return olf_objectInfo
 
-versionInfo = {
-    "name": "OpenLabelFormat",
-    "schema": "0.4",
-    "labelFile": "0.1"
-}
+def convertToOLF(inPathToCOCOJson, outPathToOLFJson):
+    with open(inPathToCOCOJson, 'r') as f:
+        coco = json.load(f)
+        versionInfo = {
+            "name": "OpenLabelFormat",
+            "schema": "0.4",
+            "labelFile": "0.1"
+        }
+        mediaInfo = {
+            "references": coco_mediaInfo(coco["images"])
+        }
+        projectInfo = {
+            "intervals": list(range(0, len(mediaInfo["references"]))),
+            "unit": "frames"
+        }
+        odometryInfo = {}
+        calibrationInfo = {}
+        positionInfo = {}
+        metaInfo = []
+        objectInfo = coco_objectInfo(coco["annotations"], coco["categories"], coco["images"])
+        olf = {
+            "versionInfo": versionInfo,
+            "projectInfo": projectInfo,
+            "odometryInfo": odometryInfo,
+            "calibrationInfo": calibrationInfo,
+            "positionInfo": positionInfo,
+            "mediaInfo": mediaInfo,
+            "metaInfo": metaInfo,
+            "objectInfo": objectInfo
+        }
+        json_out = json.dumps(olf, indent = None)
+        with open(outPathToOLFJson, "w") as f:
+            f.write(json_out)
 
-mediaInfo = {
-    "references": coco_mediaInfo(coco["images"])
-}
+def validateOLF(outPathToOLFJson, inPathToOLFSchema):
+    from jsonschema import validate
+    with open(outPathToOLFJson, "r", encoding = "utf-8-sig") as f_i:
+        with open(inPathToOLFSchema, "r", encoding = "utf-8-sig") as f_s:
+            assert not validate(json.loads(f_i.read()), json.loads(f_s.read()))
 
-projectInfo = {
-    "intervals": list(range(0, len(mediaInfo["references"]))),
-    "unit": "frames"
-}
-
-odometryInfo = {}
-
-calibrationInfo = {}
-
-positionInfo = {}
-
-metaInfo = []
-
-objectInfo = coco_objectInfo(coco["annotations"], coco["categories"], coco["images"])
-
-olf = {
-    "versionInfo": versionInfo,
-    "projectInfo": projectInfo,
-    "odometryInfo": odometryInfo,
-    "calibrationInfo": calibrationInfo,
-    "positionInfo": positionInfo,
-    "mediaInfo": mediaInfo,
-    "metaInfo": metaInfo,
-    "objectInfo": objectInfo
-}
-
-json_out = json.dumps(olf, indent = None)
-
-with open("instances_val2014_olf.json", "w") as f:
-    f.write(json_out)
+if __name__ == "__main__":
+    inPathToCOCOJson = "../../Documents/instances_val2014.json"
+    outPathToOLFJson = "../../Documents/instances_val2014_olf.json"
+    inPathToOLFSchema = "../../Schemas/olf_v0.4.json"
+    print("Converting COCO to OLF...")
+    convertToOLF(inPathToCOCOJson, outPathToOLFJson)
+    print("Done.")
+    print("Validating OLF...")
+    validateOLF(outPathToOLFJson, inPathToOLFSchema)
+    print("Done.")
