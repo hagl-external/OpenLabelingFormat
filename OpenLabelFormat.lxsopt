@@ -1,25 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XmlStudioProjectOptions Version="17.1.5.9520">
-  <File>.\Schemas\JsonSchema_Iter4.json</File>
-  <File>.\Documents\olf_dummy_iter4.json</File>
-  <ActiveWindow>olf_dummy_iter4.json</ActiveWindow>
+  <ActiveWindow>Start Page</ActiveWindow>
   <ProjectTreeState />
-  <UserProperties sourceUri=".\Documents\olf_dummy_iter3.json">
+  <UserProperties sourceUri=".\Documents\dummy_olf.json">
     <Value name="DisplayMode">Source</Value>
   </UserProperties>
-  <UserProperties sourceUri=".\Documents\olf_dummy_iter4.json">
-    <Value name="DisplayMode">Source</Value>
-  </UserProperties>
-  <UserProperties sourceUri=".\Schemas\JsonSchema_Iter2.json">
+  <UserProperties sourceUri=".\Schemas\schema_olf.json">
     <Value name="Zoom">1</Value>
-    <Value name="DisplayMode">Split</Value>
-  </UserProperties>
-  <UserProperties sourceUri=".\Schemas\JsonSchema_Iter3.json">
-    <Value name="Zoom">1</Value>
-    <Value name="DisplayMode">Design</Value>
-  </UserProperties>
-  <UserProperties sourceUri=".\Schemas\JsonSchema_Iter4.json">
-    <Value name="Zoom">0.9</Value>
     <Value name="DisplayMode">Split</Value>
   </UserProperties>
 </XmlStudioProjectOptions>
