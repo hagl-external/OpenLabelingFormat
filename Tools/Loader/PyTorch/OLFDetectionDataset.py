@@ -75,5 +75,3 @@ class OLFDetectionDataset(Dataset):
                 "box": annotations["box2D_max"],
                 "cls": annotations["class"]
                 }
-
-#olf_dataset = OLFDetectionDataset("../../../Documents/instances_val2014_olf.json", "/home/soehch2/Docker/SharedFolder/CurrentDatasets/val2014")
