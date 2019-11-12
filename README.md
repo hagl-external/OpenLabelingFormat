@@ -13,9 +13,11 @@ Python scripts require the following package versions:
 |Package|Version|
 |--|--|
 |jsonschema|3.1.1|
+|object-detection|0.0.3|
 |pandas|0.25.1|
 |python|3.6.9|
 |scikit-image|0.15.0|
+|tensorflow|2.0.0|
 |torch|1.3.0|
 
 ## Maintainer
