@@ -1,3 +1,5 @@
+<img src="https://github.com/hagl-external/OpenLabelFormat/blob/master/Resources/olf_logo.gif" width="640" />
+
 # OLF - Open Label Format
 ## Brief
 The Open Label Format is a specification aimed at labeling (not only) automotive sensor data.
