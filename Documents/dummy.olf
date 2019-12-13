@@ -2,7 +2,7 @@
     "versionInfo": {
         "schema": "0.4",
         "labelFile": "0.1",
-        "name": "OpenLabelFormat",
+        "name": "OpenLabelingFormat",
         "history": {
             "created": {
                 "uuid": "00000000-0000-0000-C000-000000000042",

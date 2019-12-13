@@ -1,8 +1,8 @@
 ﻿{
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/hagl-external/OpenLabelFormat/blob/master/Schemas/schema_olf.json",
+    "$id": "https://github.com/hagl-external/OpenLabelingFormat/blob/master/Schemas/schema.olf.json",
     "type": "object",
-    "title": "OpenLabelFormat v0.4",
+    "title": "OpenLabelingFormat v0.5",
     "description": "Created with Liquid Studio 2019 (https://www.liquid-technologies.com)",
     "additionalProperties": false,
     "properties": {
@@ -13,8 +13,8 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "Constant 'OpenLabelFormat' naming the label file.",
-                    "const": "OpenLabelFormat"
+                    "description": "Constant 'OpenLabelingFormat' naming the label file.",
+                    "const": "OpenLabelingFormat"
                 },
                 "schema": {
                     "type": "string",

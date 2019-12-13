@@ -4,7 +4,7 @@ import glob
 import pandas as pd
 
 class OLFDetection2D:
-    """Class for reading datasets from OpenLabelFormat (OLF)"""
+    """Class for reading datasets from OpenLabelingFormat (OLF)"""
 
     def __init__(self, olf_file, media_types = ["image/png", "image/jpeg"], root_dir = None):
         """

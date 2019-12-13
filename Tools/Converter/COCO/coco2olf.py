@@ -87,8 +87,8 @@ def convertToOLF(inPathToCOCOJson, outPathToOLFJson):
     with open(inPathToCOCOJson, 'r') as f:
         coco = json.load(f)
         versionInfo = {
-            "name": "OpenLabelFormat",
-            "schema": "0.4",
+            "name": "OpenLabelingFormat",
+            "schema": "0.5",
             "labelFile": "0.1"
         }
         mediaInfo = {

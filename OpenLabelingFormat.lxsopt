@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XmlStudioProjectOptions Version="17.1.5.9520">
+  <File>.\Schemas\schema.olf.json</File>
+  <File>.\Documents\dummy.olf</File>
+  <ActiveWindow>dummy.olf</ActiveWindow>
+  <ProjectTreeState />
+  <UserProperties sourceUri=".\Schemas\schema.olf.json">
+    <Value name="Zoom">1</Value>
+  </UserProperties>
+</XmlStudioProjectOptions>
