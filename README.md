@@ -7,6 +7,37 @@ The Open Labeling Format is a specification aimed at labeling (not only) automot
 ## Details
 For a complete description of the OLF please read the white-paper.
 
+## Overview
+```bash
+.
+├── Documentation
+│   └── OLF_WhitePaper.pdf                    # White-paper and in-depth description of the format
+├── Documents
+│   └── dummy.olf                             # Sample OLF file (dummy)
+├── License.md                                # License file
+├── OpenLabelingFormat.lxsopt                 # Project file(s) for Liquid Studio
+├── OpenLabelingFormat.lxsproj                # Project file(s) for Liquid Studio
+├── README.md                                 # This file
+├── Resources
+│   ├── olf_logo.gif                          # OLF logo animation
+│   └── olf_logo.jpg                          # OLF logo
+├── Schemas
+│   └── schema.olf.json                       # Actual OLF specification as JSON schema
+└── Tools
+    ├── Converter
+    │   ├── COCO
+    │   │   └── coco2olf.py                   # Converter from MS COCO to OLF
+    │   └── TFRecord
+    │       └── OLFDetection2DTFRecord.py     # Converter from OLF to TFRecord
+    ├── Loader
+    │   ├── OLFDetection2D.py                 # Base class for extracting 2D detections from an OLF file
+    │   └── PyTorch                          
+    │       └── OLFDetection2DDataset.py      # Detection dataset class for PyTorch based on OLFDetection2D.py
+    └── Notebooks                             
+        ├── Demo_OLFDetection_PyTorch.ipynb   # Demo notebook showing how to use OLFDetection2DDataset.py
+        └── Demo_OLFDetection_TFRecord.ipynb  # Demo notebook showing how to use OLFDetection2DTFRecord.py
+```
+
 ## Requirements
 The OLF schema has been designed using Liquid Studio 2019 - JSON Editor Edition 17.1.5.9520 offered by [Liquid Technologies](https://www.liquid-technologies.com). It is based on JSON schema draft-07.
 
