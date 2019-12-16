@@ -10,6 +10,8 @@ For a complete description of the OLF please read the white-paper.
 ## Overview
 ```bash
 .
+├── Documentation
+│   └── OLF_WhitePaper.pdf                    # White-paper and in-depth description of the format
 ├── Documents
 │   └── dummy.olf                             # Sample OLF file (dummy)
 ├── License.md                                # License file
