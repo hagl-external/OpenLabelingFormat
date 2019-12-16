@@ -22,5 +22,7 @@ Python scripts require the following package versions:
 |tensorflow|2.0.0|
 |torch|1.3.0|
 
-## Maintainer
-The specification and all corresponding code is currently maintained by [Hella Aglaia Mobile Vision GmbH](https://www.aglaia-gmbh.de).
+## Maintainer & Copyright
+The specification and all corresponding code is currently maintained by [HELLA Aglaia Mobile Vision GmbH](https://www.aglaia-gmbh.de).
+
+Copyright (c) 2019, HELLA Aglaia Mobile Vision GmbH
