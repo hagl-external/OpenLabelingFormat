@@ -5,10 +5,10 @@
 The Open Labeling Format is a specification aimed at labeling (not only) automotive sensor data.
 
 ## Details
-The specification is based on JSON schema draft-07.
+For a complete description of the OLF please read the white-paper.
 
 ## Requirements
-The OLF schema has been designed using Liquid Studio 2019 - JSON Editor Edition 17.1.5.9520 offered by [Liquid Technologies](https://www.liquid-technologies.com).
+The OLF schema has been designed using Liquid Studio 2019 - JSON Editor Edition 17.1.5.9520 offered by [Liquid Technologies](https://www.liquid-technologies.com). It is based on JSON schema draft-07.
 
 Python scripts require the following package versions:
 
@@ -21,6 +21,13 @@ Python scripts require the following package versions:
 |scikit-image|0.15.0|
 |tensorflow|2.0.0|
 |torch|1.3.0|
+
+## Quick-Start
+To convert detections from [MS COCO](http://images.cocodataset.org/annotations/annotations_trainval2014.zip) into OLF, check-out [this script](https://github.com/hagl-external/OpenLabelingFormat/blob/master/Tools/Converter/COCO/coco2olf.py).
+
+For a demo on how to use an OLF file as a PyTorch detection dataset, check-out [this notebook](https://github.com/hagl-external/OpenLabelingFormat/blob/master/Tools/Notebooks/Demo_OLFDetection_PyTorch.ipynb).
+
+For a demo on how to convert an OLF file into a detection TFRecord, checkout [this notebook](https://github.com/hagl-external/OpenLabelingFormat/blob/master/Tools/Notebooks/Demo_OLFDetection_TFRecord.ipynb).
 
 ## License
 The OLF standard, the schema file(s) and the documentation file(s) are licensed under a<br />
