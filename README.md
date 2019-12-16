@@ -22,6 +22,10 @@ Python scripts require the following package versions:
 |tensorflow|2.0.0|
 |torch|1.3.0|
 
+## License
+For the OLF standard, the schema file(s) and the documentation this license applies.
+For all other parts of the repository this license applies.
+
 ## Maintainer & Copyright
 The specification and all corresponding code is currently maintained by [HELLA Aglaia Mobile Vision GmbH](https://www.aglaia-gmbh.de).
 
