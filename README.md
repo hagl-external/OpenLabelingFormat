@@ -26,7 +26,7 @@ Python scripts require the following package versions:
 The OLF standard, the schema file(s) and the documentation file(s) are licensed under a<br />
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"> Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
-For all other parts of the repository this license applies.
+For all other parts of the repository [this](https://github.com/hagl-external/OpenLabelingFormat/blob/master/License.md) license applies.
 
 ## Maintainer & Copyright
 The specification and all corresponding code is currently maintained by [HELLA Aglaia Mobile Vision GmbH](https://www.aglaia-gmbh.de).
