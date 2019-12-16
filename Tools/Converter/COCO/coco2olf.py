@@ -126,7 +126,7 @@ def validateOLF(outPathToOLFJson, inPathToOLFSchema):
 if __name__ == "__main__":
     inPathToCOCOJson = "../../Documents/instances_val2014.json"
     outPathToOLFJson = "../../Documents/instances_val2014_olf.json"
-    inPathToOLFSchema = "../../Schemas/olf_v0.4.json"
+    inPathToOLFSchema = "../../Schemas/schema.olf.json"
     print("Converting COCO to OLF...")
     convertToOLF(inPathToCOCOJson, outPathToOLFJson)
     print("Done.")
