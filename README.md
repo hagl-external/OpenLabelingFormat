@@ -23,7 +23,8 @@ Python scripts require the following package versions:
 |torch|1.3.0|
 
 ## License
-For the OLF standard, the schema file(s) and the documentation this license applies.
+The OLF standard, the schema file(s) and the documentation are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br /><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
 For all other parts of the repository this license applies.
 
 ## Maintainer & Copyright
