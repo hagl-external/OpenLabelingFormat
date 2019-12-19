@@ -1,11 +1,11 @@
-<img src="https://github.com/hagl-external/OpenLabelingFormat/blob/master/Resources/olf_logo.gif" width="640" />
+<img src="https://github.com/hagl-external/OpenLabelingFormat/blob/master/Resources/olf_logo.jpg" width="1200" />
 
 # OLF - Open Labeling Format
 ## Brief
 The Open Labeling Format is a specification aimed at labeling (not only) automotive sensor data.
 
 ## Details
-For a complete description of the OLF please read the white-paper.
+For a complete description of the OLF schema please read the white-paper (available soon). Please also have a look at the [schema file](https://github.com/hagl-external/OpenLabelingFormat/blob/master/Schemas/schema.olf.json) itself.
 
 ## Overview
 ```bash
@@ -19,7 +19,6 @@ For a complete description of the OLF please read the white-paper.
 ├── OpenLabelingFormat.lxsproj                # Project file(s) for Liquid Studio
 ├── README.md                                 # This file
 ├── Resources
-│   ├── olf_logo.gif                          # OLF logo animation
 │   └── olf_logo.jpg                          # OLF logo
 ├── Schemas
 │   └── schema.olf.json                       # Actual OLF specification as JSON schema
