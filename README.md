@@ -3,6 +3,7 @@
 # OLF - Open Labeling Format
 ## Brief
 The Open Labeling Format is a specification aimed at labeling (not only) automotive sensor data.
+<img src="https://github.com/hagl-external/OpenLabelingFormat/blob/master/Resources/labeling.jpg" width="1200" />
 
 ## Details
 For a complete description of the OLF schema please read the [white-paper](https://github.com/hagl-external/OpenLabelingFormat/blob/master/Documentation/OLF_WhitePaper.pdf). Please also have a look at the [schema file](https://github.com/hagl-external/OpenLabelingFormat/blob/master/Schemas/schema.olf.json) itself.
@@ -70,4 +71,4 @@ For all other parts of the repository [this](https://github.com/hagl-external/Op
 ## Maintainer & Copyright
 This repository is currently maintained by [HELLA Aglaia Mobile Vision GmbH](https://www.aglaia-gmbh.de).
 
-Copyright (c) 2019, HELLA Aglaia Mobile Vision GmbH
+<img src="https://github.com/hagl-external/OpenLabelingFormat/blob/master/Resources/hagl_logo.jpg" width="120" /> Copyright (c) 2019, HELLA Aglaia Mobile Vision GmbH
