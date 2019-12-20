@@ -3,7 +3,7 @@
     "$id": "https://github.com/hagl-external/OpenLabelingFormat/blob/master/Schemas/schema.olf.json",
     "type": "object",
     "title": "OpenLabelingFormat v0.5",
-    "description": "Created with Liquid Studio 2019 (https://www.liquid-technologies.com)",
+    "description": "Maintained by HELLA Aglaia Mobile Vision GmbH (https://hella-aglaia.com)",
     "additionalProperties": false,
     "properties": {
         "versionInfo": {
