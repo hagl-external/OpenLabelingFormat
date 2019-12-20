@@ -2,7 +2,7 @@
 
 # OLF - Open Labeling Format
 ## Brief
-The Open Labeling Format is a specification aimed at labeling (not only) automotive sensor data.
+The Open Labeling Format is a specification aimed at labeling (not only) automotive sensor data like below:
 <img src="https://github.com/hagl-external/OpenLabelingFormat/blob/master/Resources/labeling.jpg" width="1200" />
 
 ## Details
