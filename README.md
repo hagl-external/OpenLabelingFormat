@@ -13,12 +13,14 @@ For a complete description of the OLF schema please read the [white-paper](https
 ├── Documentation
 │   └── OLF_WhitePaper.pdf                    # White-paper and in-depth description of the format
 ├── Documents
-│   └── dummy.olf                             # Sample OLF file (dummy)
+│   └── example.olf                           # Sample OLF file (dummy)
 ├── License.md                                # License file
 ├── OpenLabelingFormat.lxsopt                 # Project file(s) for Liquid Studio
 ├── OpenLabelingFormat.lxsproj                # Project file(s) for Liquid Studio
 ├── README.md                                 # This file
 ├── Resources
+│   ├── labeling.jpg                          # Sample screen of labeling process
+│   ├── hagl_logo.jpg                         # HELLA Aglaia logo
 │   └── olf_logo.jpg                          # OLF logo
 ├── Schemas
 │   └── schema.olf.json                       # Actual OLF specification as JSON schema
@@ -30,9 +32,9 @@ For a complete description of the OLF schema please read the [white-paper](https
     │       └── OLFDetection2DTFRecord.py     # Converter from OLF to TFRecord
     ├── Loader
     │   ├── OLFDetection2D.py                 # Base class for extracting 2D detections from an OLF file
-    │   └── PyTorch                          
+    │   └── PyTorch
     │       └── OLFDetection2DDataset.py      # Detection dataset class for PyTorch based on OLFDetection2D.py
-    └── Notebooks                             
+    └── Notebooks
         ├── Demo_OLFDetection_PyTorch.ipynb   # Demo notebook showing how to use OLFDetection2DDataset.py
         └── Demo_OLFDetection_TFRecord.ipynb  # Demo notebook showing how to use OLFDetection2DTFRecord.py
 ```
