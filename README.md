@@ -71,4 +71,4 @@ For all other parts of the repository [this](https://github.com/hagl-external/Op
 ## Maintainer & Copyright
 This repository is currently maintained by [HELLA Aglaia Mobile Vision GmbH](https://www.aglaia-gmbh.de).
 
-<img src="https://github.com/hagl-external/OpenLabelingFormat/blob/master/Resources/hagl_logo.jpg" width="120" /> Copyright (c) 2019, HELLA Aglaia Mobile Vision GmbH
+<img src="https://github.com/hagl-external/OpenLabelingFormat/blob/master/Resources/hagl_logo.jpg" width="120" /> Copyright (c) 2020, HELLA Aglaia Mobile Vision GmbH
