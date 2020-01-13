@@ -69,6 +69,6 @@ The OLF standard, the schema file(s) and the documentation file(s) are licensed 
 For all other parts of the repository [this](https://github.com/hagl-external/OpenLabelingFormat/blob/master/License.md) license applies.
 
 ## Maintainer & Copyright
-This repository is currently maintained by [HELLA Aglaia Mobile Vision GmbH](https://www.aglaia-gmbh.de).
+This repository is currently maintained by [HELLA Aglaia Mobile Vision GmbH](https://hella-aglaia.com).
 
 <img src="https://github.com/hagl-external/OpenLabelingFormat/blob/master/Resources/hagl_logo.jpg" width="120" /> Copyright (c) 2020, HELLA Aglaia Mobile Vision GmbH
