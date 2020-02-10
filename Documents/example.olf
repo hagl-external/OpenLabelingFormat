@@ -1,6 +1,6 @@
 ﻿{
     "versionInfo": {
-        "schema": "0.4",
+        "schema": "0.6",
         "labelFile": "0.1",
         "name": "OpenLabelingFormat",
         "history": {

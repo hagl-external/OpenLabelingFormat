@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "https://github.com/hagl-external/OpenLabelingFormat/blob/master/Schemas/schema.olf.json",
     "type": "object",
-    "title": "OpenLabelingFormat v0.5",
+    "title": "OpenLabelingFormat v0.6",
     "description": "Maintained by HELLA Aglaia Mobile Vision GmbH (https://hella-aglaia.com)",
     "additionalProperties": false,
     "properties": {
@@ -853,10 +853,10 @@
                             "description": "Defines a bounding box in 3D space.",
                             "additionalProperties": false,
                             "properties": {
-                                "topLeft": {
+                                "center": {
                                     "$ref": "#/definitions/coordinate3D"
                                 },
-                                "bottomRight": {
+                                "dimension": {
                                     "$ref": "#/definitions/coordinate3D"
                                 },
                                 "rotation": {
@@ -868,8 +868,8 @@
                             },
                             "required": [
                                 "rotation",
-                                "bottomRight",
-                                "topLeft"
+                                "center",
+                                "dimension"
                             ]
                         }
                     },

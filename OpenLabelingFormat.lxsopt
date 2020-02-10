@@ -4,6 +4,9 @@
   <File>.\Documents\example.olf</File>
   <ActiveWindow>schema.olf.json</ActiveWindow>
   <ProjectTreeState />
+  <UserProperties sourceUri=".\Documents\example.olf">
+    <Value name="DisplayMode">Source</Value>
+  </UserProperties>
   <UserProperties sourceUri=".\Schemas\schema.olf.json">
     <Value name="Zoom">1</Value>
   </UserProperties>
